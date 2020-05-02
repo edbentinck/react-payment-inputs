@@ -4,6 +4,7 @@ import utils from './utils';
 
 export default function usePaymentCard({
   autoFocus = true,
+  eagerErrors = false,
   errorMessages,
   onBlur,
   onChange,
@@ -55,7 +56,7 @@ export default function usePaymentCard({
 
   const setInputTouched = React.useCallback((input, value) => {
     requestAnimationFrame(() => {
-      if (document.activeElement.tagName !== 'INPUT') {
+      if (document.activeElement.tagName !== 'INPUT' || eagerErrors) {
         setIsTouched(true);
       } else if (value === false) {
         setIsTouched(false);
