@@ -17,6 +17,7 @@
     "create-proxies": "node scripts/create-proxies.js",
     "remove-proxies": "node scripts/remove-proxies.js",
     "clean": "rimraf es/ lib/ umd/ && yarn remove-proxies",
+    "prepare": "yarn create-proxies && yarn build",
     "prepublishOnly": "yarn create-proxies && yarn build",
     "postpublish": "yarn clean",
     "lint": "eslint ./src",
